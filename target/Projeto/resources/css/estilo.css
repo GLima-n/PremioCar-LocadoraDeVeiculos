@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+html, body{
+	height: 100%;
+}
+
+body{
+	margin: 0;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	
+}
+
+#conteudo-busca{
+	flex: 1 0 auto;
+}
+
+body .ui-button {
+    margin-top: 10px;
+
+}
+
+#display{
+	display: inline-block;
+	margin: 0 20px;
+}
+
+#container-login{
+	margin: 110px 450px;
+	width: 360px;
+	height: 360px;
+	border-radius: 10px;
+	background-color: white;
+	
+}
+
+#item-login{
+	text-align: center;
+}
+
+a{
+ text-decoration: none;
+
+}
+
+a:hover{
+	color: #2196F3;
+}
+
+
+header{
+	background-color: white;
+}
+
+
+
+body .ui-menu.ui-menubar {
+	background-color: white;
+    margin-top: 25px;
+    float: right;
+    border: none;
+}
+
+body .ui-menu.ui-menubar > .ui-menu-list > .ui-menuitem > .ui-menuitem-link {
+	background-color: white;
+ 
+} 
+
+body .ui-menu.ui-menubar > .ui-menu-list > .ui-menuitem{
+	margin-right: 10px;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text {
+    color: #19395a;
+}
+
+body .ui-menu.ui-menubar > .ui-menu-list > .ui-menuitem > .ui-menuitem-link > span {
+	color: #19395a;
+}
+
+body .ui-button.ui-button-text-icon-left .ui-button-text {
+    background-color: #19395a;
+}
+
+
+body .ui-button{
+	background: #19395a;
+
+}
+
+body .ui-button:hover{
+	background: #19395a;
+
+}
+
+.ui-menu-list {
+    margin-right: 40px;
+}
+
+body .ui-panelgrid {
+
+  margin-top: 50px; 
+  margin-left:80px; 
+  margin-right:80px;
+}
+
+.ui-panelgrid td, .ui-panelgrid tr {
+    border-style: none !important
+}
+
+.conteudo-principal{
+	height: 400px; 
+	padding-top: 25%;
+}
+
+#rodape{
+	padding: 50px;
+	background-color: rgb(234, 234, 234);
+	
+	}
+#rodape #icone{
+	float: right;
+}
+
+#rodape #icone a{
+	text-decoration: none;
+	color: black;
+}

@@ -1,0 +1,132 @@
+<ui:composition template="/WEB-INF/template/MenuGenerico.xhtml"
+
+   xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="corpo">
+	
+		<h:form id="form" enctype="multipart/form-data">
+			<p:panel header="Cadastro de Veículo Esportivo">
+			<p:messages autoUpdate="true" closable="true"></p:messages>
+			<p:panelGrid columns="6" style="margin:0;">
+				<p:outputLabel value="Placa" for="placa"></p:outputLabel>
+				<p:inputText id="placa" value="#{veiculoBean.veiculo.placa}" pattern="[A-Za-z]{3}-[0-9]{4}" maxlength="7"  required="true"></p:inputText>
+				
+				<p:outputLabel value="Modelo" for="modelo"></p:outputLabel>
+				<p:inputText id="modelo" value="#{veiculoBean.veiculo.modelo}" pattern="[aA-zZ\s]+$"  required="true"></p:inputText>
+				
+				<p:outputLabel value="Fabricante" for="fabricante"></p:outputLabel>
+				<p:inputText id="fabricante" value="#{veiculoBean.veiculo.fabricante}" pattern="[aA-zZ\s]+$"  required="true"></p:inputText>
+				
+				<p:outputLabel value="Ano" for="ano"></p:outputLabel>
+				<p:inputText id="ano" value="#{veiculoBean.veiculo.ano}"  pattern="[0-9]+$" maxlength="4" required="true"></p:inputText>
+				
+				<p:outputLabel value="Cor" for="cor"></p:outputLabel>
+				<p:inputText id="cor" value="#{veiculoBean.veiculo.cor}"  pattern=".{4,}" required="true"></p:inputText>
+			
+				<p:outputLabel value="Tipo de Ar Condicionado" for="arcondicionado"></p:outputLabel>
+				<p:inputText id="arcondicionado" value="#{veiculoBean.veiculo.arcondicionado}"  required="true"></p:inputText>
+				
+				<p:outputLabel value="Potência do Motor" for="potencia"></p:outputLabel>
+				<p:inputText id="potencia" value="#{veiculoBean.veiculo.motor}" pattern="[0-9]+$" required="true"></p:inputText>
+				
+				<p:outputLabel value="Tipo de Direção" for="tipo"></p:outputLabel>
+				<p:inputText id="tipo" value="#{veiculoBean.veiculo.tipoDirecao}" pattern="[aA-zZ\s]+$" required="true"></p:inputText>
+				
+				<p:outputLabel value="Câmbio Automático" for="cambio"></p:outputLabel>
+				<p:inputText id="cambio" value="#{veiculoBean.veiculo.cambioAutomatico}" pattern="[aA-zZ\s]+$" required="true"></p:inputText>
+				
+				<p:outputLabel value="Valor Diária" for="diaria"></p:outputLabel>
+				<p:inputNumber id="diaria" min="100" value="#{veiculoBean.veiculo.valorDiaria}" required="true"></p:inputNumber>
+				
+				<p:outputLabel value="Qtd Portas" for="qtd"></p:outputLabel>
+				<p:inputText id="qtd" value="#{veiculoBean.veiculo.qtdPortas}" pattern="[0-9]+$" required="true"></p:inputText>
+				
+				<p:selectOneMenu value="#{veiculoBean.veiculo.tipo}" required="true" label="Tipo">
+     				<f:selectItem itemLabel="Tipo de Veículo" noSelectionOption="true"></f:selectItem>
+     				<f:selectItem itemLabel="Passeio" itemValue="Passeio"></f:selectItem>
+     				<f:selectItem itemLabel="Esportivo" itemValue="Esportivo"></f:selectItem>
+     			</p:selectOneMenu>
+     			
+				<p:fileUpload label="Escolha" value="#{veiculoBean.upload.uploadedFile}" skinSimple="true" mode="simple"></p:fileUpload>
+			
+			</p:panelGrid>
+				<p:commandButton style="margin-left: 13px;" actionListener="#{veiculoBean.upload.upload()}" ajax="false" action="#{veiculoBean.salvar()}"  update="form tabela" value="Cadastrar"></p:commandButton>
+			</p:panel>
+			
+			<p:dataTable style="margin-top: 10px;" value="#{veiculoBean.veiculos}" var="veiculos" id="tabela" paginator="true" rows="5">
+      
+     		 <p:column headerText="Placa">
+      		 <p:outputLabel value="#{veiculos.placa}"></p:outputLabel>
+     		 </p:column>
+     	 
+     		<p:column headerText="Modelo" width="200">
+      		<p:outputLabel value="#{veiculos.modelo}"></p:outputLabel>
+     		</p:column>
+     	 
+     		<p:column headerText="Fabricante" width="200">
+      		<p:outputLabel value="#{veiculos.fabricante}"></p:outputLabel>
+        	</p:column>
+        
+        	<p:column headerText="Ano" width="150">
+      		<p:outputLabel value="#{veiculos.ano}"></p:outputLabel>
+        	</p:column>
+        	
+        	<p:column headerText="Cor" width="150">
+      		<p:outputLabel value="#{veiculos.cor}"></p:outputLabel>
+        	</p:column>
+        	
+        	<p:column headerText="Tipo Ar Condicionado" width="150">
+      		<p:outputLabel value="#{veiculos.arcondicionado}"></p:outputLabel>
+        	</p:column>
+        	
+        	<p:column headerText="Potência do Motor" width="150">
+      		<p:outputLabel value="#{veiculos.motor}"></p:outputLabel>
+        	</p:column>
+        	
+        	<p:column headerText="Tipo de Direção" width="150">
+      		<p:outputLabel value="#{veiculos.tipoDirecao}"></p:outputLabel>
+        	</p:column>
+        	
+        	<p:column headerText="Câmbio Automático" width="150">
+      		<p:outputLabel value="#{veiculos.cambioAutomatico}"></p:outputLabel>
+        	</p:column>
+        	
+        	<p:column headerText="Diária" width="150">
+      		<p:outputLabel value="#{veiculos.valorDiaria}"></p:outputLabel>
+        	</p:column>
+        	
+        	<p:column headerText="Endereço" width="150">
+      		<p:outputLabel value="#{veiculos.pathImagem}"></p:outputLabel>
+        	</p:column>
+        	
+        	  	<p:column headerText="Qtd Portas" width="150">
+      		<p:outputLabel value="#{veiculos.qtdPortas}"></p:outputLabel>
+        	</p:column>
+        	
+        	<p:column headerText="Tipo" width="150">
+      		<p:outputLabel value="#{veiculos.tipo}"></p:outputLabel>
+        	</p:column>
+        
+        
+        <p:column headerText="" width="20">
+      		<p:commandLink  update="@form" process="@this">
+      		<i class="pi pi-pencil"></i>
+      		<f:setPropertyActionListener value="#{veiculos}" target="#{veiculoBean.veiculo}"></f:setPropertyActionListener>
+      	</p:commandLink>
+     	</p:column>
+     	
+     	<p:column headerText="" width="20">
+      	<p:commandLink action="#{veiculoBean.excluir()}"  update="tabela" process="@this">
+      		<i class="pi pi-trash"></i>
+      		<f:setPropertyActionListener value="#{veiculos}" target="#{veiculoBean.veiculo}"></f:setPropertyActionListener>
+      	</p:commandLink>
+        </p:column>
+     	 
+      </p:dataTable>
+	</h:form>
+	</ui:define>
+</ui:composition>

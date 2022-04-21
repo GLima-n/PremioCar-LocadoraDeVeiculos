@@ -1,0 +1,41 @@
+<ui:composition template="/WEB-INF/template/MenuGenerico.xhtml"
+
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="corpo">
+			<section>
+			
+			<p:graphicImage  height="500" width="100%" library="imagens" name="tela 2.jpg"></p:graphicImage>
+				<p:panelGrid columnClasses="ui-grid-col-6, ui-grid-col-6"
+					columns="2">
+					<div class="conteudo-principal">
+						<h2>Citroën Ami</h2>
+						<p>Foi projetado como um carro urbano eficiente para ciclomotores que pode ser usado sem uma carteira de motorista. A categoria de carro é descrita como uma scooter fechada. Em muitas cidades, o carro pode ser estacionado na calçada gratuitamente.</p>
+					</div>
+					<p:commandLink >
+					<p:graphicImage style="border-radius: 4px;" height="400" width="520" library="imagens"
+						name="postagem1.jpg"></p:graphicImage>
+						</p:commandLink>
+				</p:panelGrid>
+
+				<p:panelGrid columnClasses="ui-grid-col-6, ui-grid-col-6"
+					columns="2">
+
+					<p:graphicImage height="400" library="imagens" name="juros.png"></p:graphicImage>
+					
+					<div class="conteudo-principal">
+						<h2>Título</h2>
+
+						<p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when </p>
+					</div>
+
+				</p:panelGrid>
+			</section>
+		
+	</ui:define>
+	
+</ui:composition>

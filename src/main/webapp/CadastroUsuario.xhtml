@@ -1,0 +1,68 @@
+<ui:composition template="/WEB-INF/template/MenuGenerico.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:define name="corpo">
+
+	<h:form id="form">
+		 
+		<p:panel header="Cadastro de Clientes">
+		
+		<p:panelGrid columns="6" style="margin: 0 auto;">
+		
+			<p:outputLabel value="Nome" for="nome" />
+			<p:inputText value="#{usuarioBean.usuario.nome}" id="nome" size="30" required="true" label="Nome"/>
+			
+			<p:outputLabel value="Sobrenome" for="sobrenome"/>
+			<p:inputText value="#{usuarioBean.usuario.sobrenome}" id="sobrenome" size="30" required="true" label="Sobrenome"/>
+			
+			<p:outputLabel value="CPF" for="cpf"/>
+			<p:inputMask mask="999.999.999-99" id="cpf" size="30" required="true" label="CPF" value="#{usuarioBean.usuario.cpf}">
+			</p:inputMask>
+			
+			<p:outputLabel value="Telefone" for="telefone"/>
+		    <p:inputMask id="telefone" size="30" required="true" mask="(99) 99999-9999" value="#{usuarioBean.usuario.telefone}"/>
+			
+			<p:outputLabel value="UF" for="uf"/>
+			<p:inputText value="#{usuarioBean.usuario.endereco.uf}" size="30" id="uf" required="true"  maxlength="2" label="UF"/>
+			
+			<p:outputLabel value="CEP" for="cep"/>
+			<p:inputMask mask="99999-999" id="cep" size="30" required="true" label="CEP" value="#{usuarioBean.usuario.endereco.cep}"/>
+			
+			<p:outputLabel value="Cidade" for="cidade"/>
+			<p:inputText  size="30" id="cidade" required="true" label="Cidade" value="#{usuarioBean.usuario.endereco.cidade}"/>
+			
+			<p:outputLabel value="Bairro" for="bairro"/>
+			<p:inputText  size="30" id="bairro" required="true" label="Bairro" value="#{usuarioBean.usuario.endereco.bairro}"/>
+			
+			<p:outputLabel value="Rua" for="rua"/>
+			<p:inputText  size="30" id="rua" required="true" label="Rua" value="#{usuarioBean.usuario.endereco.rua}"/>
+			
+			<p:outputLabel value="Número" for="numero"/>
+			<p:inputNumber size="30" id="numero" required="true" label="Número" value="#{usuarioBean.usuario.endereco.numero}" />
+			
+			<p:outputLabel value="E-MAIL" for="email"/>
+			<p:inputText type="email" id="email" size="30" required="true" label="E-MAIL" value="#{usuarioBean.usuario.email}"/>
+			
+			<p:outputLabel value="Senha" for="senha"></p:outputLabel>
+			<p:password value="#{usuarioBean.usuario.senha}" id="senha" size="30" feedback="true" weakLabel="Muito Fraca" 
+			goodLabel="Senha Razoável" strongLabel="Senha Forte" promptLabel="Informe uma senha" 
+			match="confirma" inline="true" required="true" requiredMessage="A senha é obrigatória!" 
+			validatorMessage="A senha e a confirmação estão diferentes!">
+			
+			</p:password>
+			<p:outputLabel value="Confirme a senha" for="confirma"></p:outputLabel>
+			<p:password size="30" id="confirma" required="true">
+			</p:password>
+		</p:panelGrid>
+		
+		<p:commandButton style="margin-left: 13px;" update="form" action="#{usuarioBean.salvar()}" value="Cadastrar"/>
+		
+		</p:panel>
+			 <p:messages autoUpdate="true" closable="true" ></p:messages>
+	</h:form>
+	</ui:define>
+</ui:composition>
