@@ -1,5 +1,4 @@
 package br.com.facol.model.entidades;
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Usuario extends Pessoa implements Serializable {
+public class Usuario extends Pessoa{
 
 	private static final long serialVersionUID = 1L;
 	

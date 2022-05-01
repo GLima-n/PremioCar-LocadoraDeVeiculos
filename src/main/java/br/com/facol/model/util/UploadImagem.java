@@ -35,8 +35,7 @@ public class UploadImagem implements Serializable {
 		  try {
 		   this.file = new File(uploadedFile.getFileName());
 		  } catch(Exception e) {
-		    FacesContext.getCurrentInstance().addMessage(
-		              null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Erro", e.getMessage()));
+		    Feedback.warning("Selecione uma imagem!");
 		  }
 		 
 		}

@@ -11,10 +11,10 @@
 	<h:form id="form">
 	<p:panel header="Aluguel do Veículo">
 	<p:messages autoUpdate="true" closable="true"></p:messages>
-	<p:panelGrid columns="6" style="margin: 0; ">
+	<p:panelGrid columns="6" style="margin: 0;">
 	
 	<p:outputLabel value="CPF" for="cpf" ></p:outputLabel>
-	<p:inputMask mask="999.999.999-99" value="#{reservaBean.usuario.cpf}" required="true" id="cpf" size="30"></p:inputMask>
+	<p:inputMask mask="999.999.999-99" value="#{reservaBean.usuario.cpf}" required="true" id="cpf"></p:inputMask>
 	
 	 <p:outputLabel for="retirada" value="Data Retirada"/>
      <p:calendar id="retirada" value="#{reservaBean.reserva.dataInicial}"  showOn="button"/>

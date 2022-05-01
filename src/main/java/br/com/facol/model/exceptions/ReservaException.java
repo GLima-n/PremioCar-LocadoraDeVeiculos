@@ -1,8 +1,6 @@
 package br.com.facol.model.exceptions;
 
-import java.io.Serializable;
-
-public class ReservaException extends Exception implements Serializable {
+public class ReservaException extends Exception {
 	
 	private static final long serialVersionUID = 1L;
 

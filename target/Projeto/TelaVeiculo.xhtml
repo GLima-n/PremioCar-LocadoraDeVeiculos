@@ -10,14 +10,14 @@
 	<section id="conteudo-busca">
 	<p:panel header="Veículos Disponíveis">
 	<ui:repeat value="#{veiculoBean.veiculos}" var="veiculo" >
-    <h:link  outcome="TelaApresentacaoVeiculo">
+    <h:link class="link"  outcome="TelaApresentacaoVeiculo">
 	<h:form style="display: inline-block;">
 	<p:card id="card" style="width: 25rem; margin-right: 12px; margin-top: 1em; margin-bottom: 1em; text-align: center;">
     <f:facet name="title">
         <p:outputLabel value="#{veiculo.modelo}"></p:outputLabel>
     </f:facet>
     
-    <p:graphicImage width="250" height="200" library="imagens" name="#{veiculo.pathImagem}"></p:graphicImage>
+    <p:graphicImage width="300" height="200" library="imagens" name="#{veiculo.pathImagem}"></p:graphicImage>
 
     <h4>Valor da diária R$: #{veiculo.valorDiaria}</h4>
     <h4 style="display: inline;">Disponibilidade: </h4>
@@ -25,9 +25,14 @@
 </p:card>
 	<script>
 		 var allBox = document.getElementsByClassName("situacao")
+		 var link = document.getElementsByClassName("link")
 	        for (let index = 0; index &lt; allBox.length; index++) {
 		       if(allBox[index].innerHTML == "Indisponível"){
 	            allBox[index].style.color = 'red'
+		        link[index].onclick = function(){
+					return false;
+			        }
+		            
 		       }
 	      }
 	</script>

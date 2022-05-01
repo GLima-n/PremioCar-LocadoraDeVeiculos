@@ -90,6 +90,9 @@ public class VeiculoController implements Serializable {
 			Feedback.info("Veículo cadastrado com sucesso!");
 		} catch (VeiculoException e) {
 			Feedback.erro(e.getMessage());
+		}catch(NullPointerException e) {
+			e.printStackTrace();
+			
 		}
 	}
 

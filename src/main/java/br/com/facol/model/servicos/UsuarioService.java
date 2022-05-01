@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import br.com.facol.model.dao.DaoGenerico;
+import br.com.facol.model.dao.UsuarioRepositorio;
 import br.com.facol.model.entidades.Usuario;
 import br.com.facol.model.exceptions.EnderecoException;
 import br.com.facol.model.exceptions.UsuarioException;
@@ -15,7 +15,7 @@ public class UsuarioService implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
-	private DaoGenerico<Usuario> repositorio;
+	private UsuarioRepositorio repositorio;
 
 	public void salvar(Usuario usuario) throws UsuarioException, EnderecoException {
 		

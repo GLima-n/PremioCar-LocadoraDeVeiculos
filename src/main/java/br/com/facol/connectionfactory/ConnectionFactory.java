@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 public class ConnectionFactory {
   
 	private static EntityManagerFactory factory = null;
-	private static EntityManager entityManager = null;
+	private static EntityManager entityManager = null; 
 
 	private ConnectionFactory() {
 		

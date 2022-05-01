@@ -1,0 +1,81 @@
+<ui:composition template="/WEB-INF/template/MenuGenerico.xhtml"
+
+   xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:outputScript library="js" name="mudar-cor.js"></h:outputScript>
+
+	<ui:define name="corpo">
+	<section id="conteudo-busca">	
+	<h:form id="form">
+	<p:panel >
+
+	<p:panelGrid columns="2" style="margin: 0;">
+	</p:panelGrid>
+	<p:panel header="Informações do Veículo">
+	<p:panelGrid columns="6" style="margin: 0;" value="#{reservaBean.reservas}" var="reserva">
+	
+	<p:outputLabel value="Total de Dias" for="dias" ></p:outputLabel>
+	<p:inputText value="#{reserva.totalDias}" required="true" id="dias" size="20"></p:inputText>
+	
+	<p:outputLabel for="retirada" value="Data Retirada"/>
+    <p:calendar id="retirada" value="#{reserva.dataInicial}"  showOn="button"/>
+
+	<p:outputLabel for="entrega" value="Data Entrega"/>
+    <p:calendar id="entrega" value="#{reserva.dataFinal}"  showOn="button"/>
+    
+	<p:outputLabel value="Valor total" for="total" ></p:outputLabel>
+	<p:inputText value="#{reserva.valorTotal}" required="true" id="total" size="25"></p:inputText>
+	
+	<p:outputLabel value="Modelo" for="modelo" ></p:outputLabel>
+	<p:inputText value="#{reserva.veiculo.modelo}" required="true" id="modelo" size="25"></p:inputText>
+	
+	<p:outputLabel value="Placa" for="placa" ></p:outputLabel>
+	<p:inputText value="#{reserva.veiculo.placa}" required="true" id="placa" size="25"></p:inputText>
+	
+	<p:outputLabel value="Valor Diária" for="diaria" ></p:outputLabel>
+	<p:inputNumber value="#{reserva.veiculo.valorDiaria}" required="true" id="diaria" size="25"></p:inputNumber>
+	
+	<p:outputLabel value="Tipo de Veículo" for="tipo" ></p:outputLabel>
+	<p:inputText value="#{reserva.veiculo.tipo}" required="true" id="tipo" size="25"></p:inputText>
+	</p:panelGrid>
+	</p:panel>
+	<p:panel header="Informações do Usuário">
+	<p:panelGrid columns="6" style="margin: 0;">
+	<p:outputLabel value="Nome" for="nome" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.nome}" id="nome" size="25"></p:inputText>
+	
+	<p:outputLabel value="Sobrenome" for="sobrenome" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.sobrenome}" id="sobrenome" size="25"></p:inputText>
+	
+	<p:outputLabel value="CPF" for="cpf" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.cpf}" id="cpf" size="25"></p:inputText>
+	
+	<p:outputLabel value="Bairro" for="bairro" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.endereco.bairro}" id="bairro" size="25"></p:inputText>
+	
+	<p:outputLabel value="CEP" for="cep" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.endereco.cep}" id="cep" size="25"></p:inputText>
+	
+	<p:outputLabel value="Cidade" for="cidade" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.endereco.cidade}" id="cidade" size="25"></p:inputText>
+	
+	<p:outputLabel value="Número" for="numero" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.endereco.numero}" id="numero" size="25"></p:inputText>
+	
+	<p:outputLabel value="Rua" for="rua" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.endereco.rua}" id="rua" size="25"></p:inputText>
+	
+	<p:outputLabel value="UF" for="uf" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.endereco.uf}" id="uf" size="25"></p:inputText>
+	</p:panelGrid>
+	</p:panel>
+	</p:panel>
+	</h:form>
+	</section>
+	
+	</ui:define>
+</ui:composition>
