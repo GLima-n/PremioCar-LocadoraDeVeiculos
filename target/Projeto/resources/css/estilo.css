@@ -58,8 +58,9 @@ header{
 body .ui-menu.ui-menubar {
 	background-color: white;
     margin-top: 25px;
+    margin-right: 30px;
     float: right;
-    border: none;
+    border: 0;
 }
 
 body .ui-menu.ui-menubar > .ui-menu-list > .ui-menuitem > .ui-menuitem-link {
@@ -95,7 +96,7 @@ body .ui-button:hover{
 }
 
 .ui-menu-list {
-    margin-right: 40px;
+    margin-right: 60px;
 }
 
 body .ui-panelgrid {

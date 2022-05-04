@@ -1,9 +1,9 @@
 br/com/facol/connectionfactory/ConnectionFactory.class
+br/com/facol/controllers/RepeatPaginator.class
 br/com/facol/model/util/UploadImagem.class
 br/com/facol/controllers/ReservaController.class
 br/com/facol/model/exceptions/EnderecoException.class
 br/com/facol/model/entidades/Endereco.class
-br/com/facol/controllers/FileController.class
 br/com/facol/controllers/VeiculoController.class
 br/com/facol/model/util/Feedback.class
 br/com/facol/model/entidades/Reserva.class

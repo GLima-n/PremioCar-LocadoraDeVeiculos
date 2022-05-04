@@ -14,7 +14,7 @@
 	<p:panelGrid columns="6" style="margin: 0;">
 	
 	<p:outputLabel value="CPF" for="cpf" ></p:outputLabel>
-	<p:inputMask mask="999.999.999-99" value="#{reservaBean.usuario.cpf}" required="true" id="cpf"></p:inputMask>
+	<p:inputMask mask="999.999.999-99" value="#{autentificarBean.usuario.cpf}" required="true" id="cpf"></p:inputMask>
 	
 	 <p:outputLabel for="retirada" value="Data Retirada"/>
      <p:calendar id="retirada" value="#{reservaBean.reserva.dataInicial}"  showOn="button"/>
@@ -23,7 +23,7 @@
      <p:calendar id="entrega" value="#{reservaBean.reserva.dataFinal}"  showOn="button"/>
 	
 	</p:panelGrid>
-		<p:commandButton update="form" ajax="false" action="#{reservaBean.proxima()}" value="Continuar">
+		<p:commandButton update="form" action="#{reservaBean.proxima()}" value="Continuar">
 		<f:param name="idVeiculo" value="#{veiculoBean.listarPorId().id}"></f:param>
 		</p:commandButton>
 	</p:panel>

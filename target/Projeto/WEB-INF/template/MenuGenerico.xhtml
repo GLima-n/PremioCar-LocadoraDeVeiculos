@@ -13,11 +13,11 @@
 <h:body>
 	<header>
     <h:form>
-    <p:commandLink action="TelaPrincipalFuncionario.xhtml">
+    <p:commandLink action="TelaPrincipal.xhtml">
 	<h:graphicImage style="width: 200px; height: 100px; margin-left: 30px;"  library="imagens" name="LOGO AZUL.png" />
 	</p:commandLink>
         <p:menubar>
-        	<p:menuitem value="Home" onclick="window.location.href='TelaPrincipalFuncionario.xhtml'"></p:menuitem>
+        	<p:menuitem value="Home" onclick="window.location.href='TelaPrincipal.xhtml'"></p:menuitem>
         
 			<p:menuitem value="Usuário" onclick="window.location.href='CadastroUsuarioPrincipal.xhtml'"></p:menuitem>
 			
@@ -30,10 +30,14 @@
             <p:menuitem value="Reservas" onclick="window.location.href='ListaDeReservas.xhtml'"></p:menuitem>
                        
             <f:facet name="options">
-                 <p:inputText style="margin-left: 10px;" size="30" value="#{buscaBean.modelo}" placeholder="Pesquise aqui por seu veículo"/>
-                    <p:commandButton style="margin-right: 60px;" value="Buscar" ajax="false" action="TelaBuscaVeiculo.xhtml?faces-redirect=true">
+                 <p:inputText style="margin-left: 10px;" size="25" value="#{buscaBean.modelo}" placeholder="Pesquise aqui por seu veículo"/>
+                    <p:commandButton value="Buscar" ajax="false" action="TelaBuscaVeiculo.xhtml?faces-redirect=true">
                     </p:commandButton>
-                <p:button value="Logout" href="index.xhtml" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
+                <p:button style="margin-left: 20px; position: relative; left: 13px;" value="Logout" href="index.xhtml" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
+                <div style="display: inline; float: right; margin-top: 10px;">
+                <span  style="margin-left: 40px;  color: #19395a; display: block;">Bem-Vindo!</span>
+                <span  style="margin-left: 40px; color: #19395a;">Olá, #{autentificarBean.usuario.nome}!</span>
+                </div>
             </f:facet>
         </p:menubar>
     </h:form>

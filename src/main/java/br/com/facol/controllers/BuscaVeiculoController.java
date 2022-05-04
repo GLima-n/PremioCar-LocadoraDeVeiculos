@@ -19,8 +19,25 @@ public class BuscaVeiculoController implements Serializable {
 	@Inject
 	private VeiculoService service;
 
+	private List<Veiculo> veiculos;
+
 	public BuscaVeiculoController() {
 
+	}
+	
+	public List<Veiculo> listarPorModelo() {
+
+		List<Veiculo> veiculos = this.service.listarPorModelo(modelo);
+		return veiculos;
+
+	}
+
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+
+	public void setVeiculos(List<Veiculo> veiculos) {
+		this.veiculos = veiculos;
 	}
 
 	private String modelo;
@@ -31,13 +48,6 @@ public class BuscaVeiculoController implements Serializable {
 
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
-	}
-
-	public List<Veiculo> listarPorModelo() {
-
-		List<Veiculo> veiculos = this.service.listarPorModelo(modelo);
-		return veiculos;
-
 	}
 
 }

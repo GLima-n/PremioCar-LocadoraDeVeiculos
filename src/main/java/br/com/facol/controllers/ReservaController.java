@@ -34,6 +34,8 @@ public class ReservaController implements Serializable {
 	@Inject
 	private UsuarioService serviceUsuario;
 	@Inject
+	private AutentificaoLoginController autentifica;
+	@Inject
 	private VeiculoService serviceVeiculo;
 	@Inject
 	private ReservaService serviceReserva;
@@ -51,7 +53,14 @@ public class ReservaController implements Serializable {
 		return Long.parseLong(id);
 	}
 	
+	public AutentificaoLoginController getAutentifica() {
+		return autentifica;
+	}
 
+	public void setAutentifica(AutentificaoLoginController autentifica) {
+		this.autentifica = autentifica;
+	}
+	
 	public Conversation getConversation() {
 		return conversation;
 	}
@@ -111,12 +120,12 @@ public class ReservaController implements Serializable {
 	}
 
 	public Usuario listarPorCpf() {
-		return this.serviceUsuario.buscarUsuarioPorCpf(usuario.getCpf());
+		return this.serviceUsuario.buscarUsuarioPorCpf(autentifica.getUsuario().getCpf());
 
 	}
 
 	public String proxima() {
-		this.usuario = serviceUsuario.buscarUsuarioPorCpf(usuario.getCpf());
+		this.usuario = serviceUsuario.buscarUsuarioPorCpf(autentifica.getUsuario().getCpf());
 		if (usuario == null) {
 			Feedback.warning("Usuário não encontrado");
 			return null;

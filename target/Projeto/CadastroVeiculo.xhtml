@@ -54,7 +54,7 @@
 				<p:fileUpload label="Escolha" value="#{veiculoBean.upload.uploadedFile}" skinSimple="true" mode="simple"></p:fileUpload>
 			
 			</p:panelGrid>
-				<p:commandButton style="margin-left: 13px;" actionListener="#{veiculoBean.upload.upload()}" ajax="false" action="#{veiculoBean.salvar()}"  update="form tabela" value="Cadastrar"></p:commandButton>
+				<p:commandButton style="margin-left: 13px;" actionListener="#{veiculoBean.upload.upload()}" action="#{veiculoBean.salvar()}"  update="form tabela" value="Cadastrar"></p:commandButton>
 			</p:panel>
 			
 			<p:dataTable style="margin-top: 10px;" value="#{veiculoBean.veiculos}" var="veiculos" id="tabela" paginator="true" rows="5">

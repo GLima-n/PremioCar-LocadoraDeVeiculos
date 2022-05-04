@@ -10,9 +10,9 @@
 	<p:messages autoUpdate="true" closable="true" style="width: 99%;"></p:messages>
 	<p:panel header="Resultado da Busca" id="conteudo-busca">
 	<ui:repeat value="#{buscaBean.listarPorModelo()}" var="veiculo" >
-	<p:link outcome="TelaApresentacaoVeiculo.xhtml">
+	<p:link class="link" outcome="TelaApresentacaoVeiculo.xhtml">
 	<h:form style="display: inline-block;">
-	<p:card style="width: 25rem; margin-right: 12px; margin-top: 1em; margin-bottom: 1em; text-align: center;">
+	<p:card style="width: 25rem; margin-right: 30px; margin-top: 1em; margin-bottom: 1em; text-align: center;">
     <f:facet name="title">
         <p:outputLabel value="#{veiculo.modelo}"></p:outputLabel>
     </f:facet>

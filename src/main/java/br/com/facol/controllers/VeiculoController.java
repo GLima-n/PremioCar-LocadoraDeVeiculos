@@ -40,10 +40,22 @@ public class VeiculoController implements Serializable {
 		System.out.println(nid);
 		return this.id = Long.parseLong(nid);
 	}
+	
+	 public List<Veiculo> fetchCurrentList(int from, int to)
+	    {
+	        return veiculos.subList(from, to);
+	    }
+
+	    public int getListSize()
+	    {
+	        return this.veiculos.size();
+	    }
 
 	public Veiculo getVeiculo() {
 		return veiculo;
 	}
+	
+	
 
 	public void setVeiculo(Veiculo veiculo) {
 		this.veiculo = veiculo;

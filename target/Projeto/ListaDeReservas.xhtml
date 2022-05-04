@@ -11,12 +11,12 @@
 	<p:panel header="Veículos Disponíveis">
 	<ui:repeat value="#{reservaBean.reservas}" var="reserva" >
 	<h:form style="display: inline-block;">
-	<p:card id="card" style="width: 25rem; margin-right: 12px; margin-top: 1em; margin-bottom: 1em; text-align: center;">
+	<p:card id="card" style="width: 25rem; margin-right: 30px; margin-top: 1em; margin-bottom: 1em; text-align: center;">
     <f:facet name="title">
         <p:outputLabel value="#{reserva.veiculo.modelo}"></p:outputLabel>
     </f:facet>
     
-    <p:graphicImage width="250" height="200" library="imagens" name="#{reserva.veiculo.pathImagem}"></p:graphicImage>
+    <p:graphicImage width="300" height="200" library="imagens" name="#{reserva.veiculo.pathImagem}"></p:graphicImage>
 
     <h4 style="display: inline-block; margin-right: 5px;">Data De Retirada: </h4>
     <p:calendar id="inicial" value="#{reserva.dataInicial}" size="7"/>

@@ -9,10 +9,10 @@
 	<ui:define name="corpo">
 	<section id="conteudo-busca">
 	<p:panel header="Veículos Disponíveis">
-	<ui:repeat value="#{veiculoBean.veiculos}" var="veiculo" >
+	<h:form id="form">
+	<ui:repeat value="#{repeatPaginator.model}" var="veiculo" >
     <h:link class="link"  outcome="TelaApresentacaoVeiculo">
-	<h:form style="display: inline-block;">
-	<p:card id="card" style="width: 25rem; margin-right: 12px; margin-top: 1em; margin-bottom: 1em; text-align: center;">
+	<p:card id="card"  style="width: 25rem; margin-right: 30px; display: inline-block; margin-top: 1em; margin-bottom: 1em; text-align: center;">
     <f:facet name="title">
         <p:outputLabel value="#{veiculo.modelo}"></p:outputLabel>
     </f:facet>
@@ -36,10 +36,16 @@
 		       }
 	      }
 	</script>
-</h:form>
 	 <f:param name="idVeiculo" value="#{veiculo.id}"></f:param>
     </h:link>
 	</ui:repeat>
+	<div style="text-align: center;">
+	 <p:commandButton value="&lt; Anterior" style="margin-right: 2px;" update="form" action="#{repeatPaginator.prev}"/>
+        <h:outputText value="#{repeatPaginator.pageIndex} / #{repeatPaginator.pages}"/>
+        <p:commandButton value="Proxímo &gt;" style="margin-left: 2px;"  update="form" action="#{repeatPaginator.next}"/>
+        <h:inputHidden value="#{repeatPaginator.pageIndex}"/>
+        </div>
+        </h:form>
 	</p:panel>
 	</section>
 	</ui:define>
