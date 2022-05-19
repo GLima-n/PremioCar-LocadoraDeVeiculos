@@ -1,130 +1,198 @@
 @charset "UTF-8";
 
-html, body{
+html, body {
 	height: 100%;
 }
 
-body{
+body {
 	margin: 0;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-family: Helvetica,Arial,sans-serif;
 	display: flex;
 	flex-direction: column;
+	background-color: #f8f9fa;
+}
+
+@media print {
+	body .ui-menu.ui-menubar {
+		display: none;
+	}
+	body .ui-button {
+		display: none;
+	}
+	footer {
+		display: none;
+	}
 	
 }
 
-#conteudo-busca{
+#logo-img{
+	width: 240px; 
+	height: 100px; 
+	margin-top: 40px;
+}
+#icone :hover{
+	cursor: pointer;
+}
+body .ui-card.card-lista-reserva{
+	width: 25rem; 
+	margin-right: 30px; 
+	margin-top: 1em; 
+	margin-bottom: 1em; 
+	text-align: center;
+}
+
+.conteudo-busca {
 	flex: 1 0 auto;
 }
 
 body .ui-button {
-    margin-top: 10px;
-
+	margin-top: 10px;
 }
 
-#display{
+#display {
 	display: inline-block;
 	margin: 0 20px;
 }
 
-#container-login{
+#j_idt53 :hover{
+	background-color: #2196F3;
+	border-radius: 30px;
+	
+}
+
+#container-login {
 	margin: 110px 480px;
 	width: 360px;
 	height: 360px;
 	border-radius: 10px;
 	background-color: white;
-	
 }
 
-#item-login{
+#item-login {
 	text-align: center;
 }
 
-a{
- text-decoration: none;
-
+a {
+	text-decoration: none;
 }
 
-a:hover{
+a:hover {
 	color: #2196F3;
+
 }
 
+#conteudo-rodape #topicos div{
+	display: inline-block;
+	margin-left: 100px;
+}
+#conteudo-rodape  div{
+	display: inline-block;
+}
 
-header{
+#topicos{
+	position: relative;
+	left: 100px;
+	
+}
+
+#conteudo-rodape  ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#conteudo-rodape  ul li{
+	cursor: pointer;
+	
+}
+
+#conteudo-rodape{
+	color: #495057;
+}
+
+header {
 	background-color: white;
+
 }
-
-
 
 body .ui-menu.ui-menubar {
 	background-color: white;
-    margin-top: 25px;
-    margin-right: 30px;
-    float: right;
-    border: 0;
+	margin-top: 25px;
+	margin-right: 30px;
+	float: right;
+	border: 0;
 }
 
-body .ui-menu.ui-menubar > .ui-menu-list > .ui-menuitem > .ui-menuitem-link {
+body .ui-menu.ui-menubar>.ui-menu-list>.ui-menuitem>.ui-menuitem-link {
 	background-color: white;
- 
-} 
+}
 
-body .ui-menu.ui-menubar > .ui-menu-list > .ui-menuitem{
+body .ui-menu.ui-menubar>.ui-menu-list>.ui-menuitem {
 	margin-right: 10px;
 }
 
-body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text {
-    color: #19395a;
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text
+	{
+	color: #19395a;
 }
 
-body .ui-menu.ui-menubar > .ui-menu-list > .ui-menuitem > .ui-menuitem-link > span {
+body .ui-menu.ui-menubar>.ui-menu-list>.ui-menuitem>.ui-menuitem-link>span
+	{
 	color: #19395a;
 }
 
 body .ui-button.ui-button-text-icon-left .ui-button-text {
-    background-color: #19395a;
+	background-color: #19395a;
 }
 
-
-body .ui-button{
+body .ui-button {
 	background: #19395a;
-
 }
 
-body .ui-button:hover{
+body .ui-button:hover {
 	background: #19395a;
-
 }
 
 .ui-menu-list {
-    margin-right: 60px;
+	margin-right: 60px;
 }
 
 body .ui-panelgrid {
-
-  margin-top: 50px; 
-  margin-left:80px; 
-  margin-right:80px;
+	margin-top: 50px;
+	margin-left: 80px;
+	margin-right: 80px;
 }
 
 .ui-panelgrid td, .ui-panelgrid tr {
-    border-style: none !important
+	border-style: none !important
 }
 
-.conteudo-principal{
-	height: 400px; 
+#panel .ui-panelgrid .ui-panelgrid-cell {
+	background-color: #f8f9fa;
+}
+
+.conteudo-principal {
+	height: 400px;
 	padding-top: 25%;
 }
 
-#rodape{
-	padding: 50px;
-	background-color: rgb(234, 234, 234);
+ #j_idt51.ui-button.ui-button-text-only .ui-button-text:hover {
+    background-color: #6689aa;
+    border-radius: 30px; 
+    width: 150px;
+    font-size: 20px;
+}
+
+#rodape {
 	
-	}
-#rodape #icone{
+	background-color: rgb(234, 234, 234);
+}
+
+#rodape #icone {
 	float: right;
 }
 
-#rodape #icone a{
+#rodape #icone a {
 	text-decoration: none;
 	color: black;
 }

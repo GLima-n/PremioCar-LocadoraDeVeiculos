@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import br.com.facol.model.entidades.Veiculo;
 import br.com.facol.model.servicos.VeiculoService;
+import br.com.facol.model.util.Feedback;
 
 @Named("buscaBean")
 @ApplicationScoped
@@ -20,16 +21,23 @@ public class BuscaVeiculoController implements Serializable {
 	private VeiculoService service;
 
 	private List<Veiculo> veiculos;
+	
+	private String modelo;
 
 	public BuscaVeiculoController() {
 
 	}
 	
 	public List<Veiculo> listarPorModelo() {
-
+		
 		List<Veiculo> veiculos = this.service.listarPorModelo(modelo);
+		
+		if(veiculos.isEmpty()) {
+			Feedback.warning("Veículo não encontrado");
+			return null;
+		}else {
 		return veiculos;
-
+		}
 	}
 
 	public List<Veiculo> getVeiculos() {
@@ -40,7 +48,6 @@ public class BuscaVeiculoController implements Serializable {
 		this.veiculos = veiculos;
 	}
 
-	private String modelo;
 
 	public String getModelo() {
 		return modelo;

@@ -2,6 +2,7 @@
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/servicos/VeiculoService.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/entidades/Reserva.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/controllers/AutentificaoLoginController.java
+/home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/controllers/FileDownloadView.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/entidades/Endereco.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/dao/UsuarioRepositorio.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/controllers/ReservaController.java

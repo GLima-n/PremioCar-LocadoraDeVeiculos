@@ -14,36 +14,37 @@
 </h:head>
 
 <style>
-	.imagem-fundo{
-	 background-image: url("resources/imagens/CAPA.jpg");
- 	 background-size: cover;
-	}
+.imagem-fundo {
+	background-image: url("resources/imagens/CAPA.jpg");
+	background-size: cover;
+}
 </style>
 <h:body styleClass="imagem-fundo">
 	<div id="container-login">
-		
+
 		<div id="item-login">
-		<p:graphicImage style=" width: 240px; height: 100px; margin-top: 40px;" library="imagens" name="LOGO AZUL.png"></p:graphicImage>
+			<p:graphicImage id="logo-img" library="imagens" name="LOGO AZUL.png"></p:graphicImage>
 			<h:form id="form">
-				<span class="ui-input-icon-left"> 
-				<i class="pi pi-user" /> 
-				<p:inputText style="margin-right: 20px;" value="#{autentificarBean.email}" size="25" required="true" placeholder="E-mail">
-	  			<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-				</p:inputText>
+				<span class="ui-input-icon-left"> <i class="pi pi-user" /> <p:inputText style="margin-right: 20px;" value="#{autentificarBean.email}"
+						size="25" required="true" placeholder="E-mail">
+						<f:validateRegex
+							pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+					</p:inputText>
 				</span>
-				<br/>
-				<br/>
-				<span class="ui-input-icon-left"> 
-				<i class="pi pi-lock"/> 
-				<p:inputText type="password" id="senha" value="#{autentificarBean.senha}" size="25" required="true"  placeholder="Senha"/> 
-				<img id="olho" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII=" />
+				<br />
+				<br />
+				<span class="ui-input-icon-left"> <i class="pi pi-lock" /> <p:inputText
+						type="password" id="senha" value="#{autentificarBean.senha}"
+						size="25" required="true" placeholder="Senha" /> <img id="olho"
+					src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII=" />
 				</span>
-				<br/>
-				<br/>
+				<br />
+				<br />
 				<h:outputScript library="js" name="script-login.js"></h:outputScript>
-				<p:commandButton action="#{autentificarBean.autentificar()}" update="form" style="margin-right: 55px;" value="Entrar" />
-		 		<a style="margin-left: 80px;" href="/Projeto/CadastroUsuario.xhtml">Cadastre-se</a>
-		 		<p:messages autoUpdate="true" closable="true"></p:messages>
+				<p:commandButton action="#{autentificarBean.autentificar()}"
+					update="form" style="margin-right: 55px;" value="Entrar" />
+				<a style="margin-left: 80px;" href="/Projeto/CadastroUsuario.xhtml">Cadastre-se</a>
+				<p:messages autoUpdate="true" closable="true"></p:messages>
 			</h:form>
 		</div>
 	</div>

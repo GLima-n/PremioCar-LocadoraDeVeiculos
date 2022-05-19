@@ -9,6 +9,7 @@ import br.com.facol.model.dao.UsuarioRepositorio;
 import br.com.facol.model.entidades.Usuario;
 import br.com.facol.model.exceptions.EnderecoException;
 import br.com.facol.model.exceptions.UsuarioException;
+import br.com.facol.model.util.Feedback;
 
 public class UsuarioService implements Serializable {
 
@@ -38,6 +39,7 @@ public class UsuarioService implements Serializable {
 			throw new EnderecoException("Insira um CEP válido");
 		}else {
 			this.repositorio.salvar(usuario);
+			Feedback.info("Salvo com sucesso!");
 		}
 		
 	}

@@ -1,32 +1,36 @@
 <ui:composition template="/WEB-INF/template/MenuGenerico.xhtml"
-
-    xmlns="http://www.w3.org/1999/xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="corpo">
-	<section id="conteudo-busca">
-	<p:panel header="Veículos Disponíveis">
-	<ui:repeat value="#{reservaBean.reservas}" var="reserva" >
-	<h:form style="display: inline-block;">
-	<p:card id="card" style="width: 25rem; margin-right: 30px; margin-top: 1em; margin-bottom: 1em; text-align: center;">
-    <f:facet name="title">
-        <p:outputLabel value="#{reserva.veiculo.modelo}"></p:outputLabel>
-    </f:facet>
-    
-    <p:graphicImage width="300" height="200" library="imagens" name="#{reserva.veiculo.pathImagem}"></p:graphicImage>
+		<section class="conteudo-busca">
+			<p:panel header="Veículos Disponíveis">
+				<ui:repeat value="#{reservaBean.reservas}" var="reserva">
+					<h:form style="display: inline-block;">
+						<p:card class="card-lista-reserva">
+							<f:facet name="title">
+								<p:outputLabel value="#{reserva.veiculo.modelo}"></p:outputLabel>
+							</f:facet>
 
-    <h4 style="display: inline-block; margin-right: 5px;">Data De Retirada: </h4>
-    <p:calendar id="inicial" value="#{reserva.dataInicial}" size="7"/>
-    <h4 style="display: inline-block; margin-right: 5px;">Data De Devolução: </h4>
-    <p:calendar id="final" value="#{reserva.dataFinal}" size="7"/><br></br>
-    <p:commandButton ajax="false" action="TelaApresentacaoReserva.xhtml" value="Detalhes da Reserva"></p:commandButton>
-	</p:card>
-	</h:form>
-	</ui:repeat>
-	</p:panel>
-	</section>
+							<p:graphicImage width="300" height="200" library="imagens"
+								name="#{reserva.veiculo.pathImagem}"></p:graphicImage>
+
+							<h4 style="display: inline-block; margin-right: 5px;">Data
+								De Retirada:</h4>
+							<p:calendar id="inicial" value="#{reserva.dataInicial}" size="7" />
+							<h4 style="display: inline-block; margin-right: 5px;">Data
+								De Devolução:</h4>
+							<p:calendar id="final" value="#{reserva.dataFinal}" size="7" />
+							<br></br>
+							<p:commandButton action="TelaApresentacaoReserva.xhtml" value="Detalhes da Reserva">
+							</p:commandButton>
+						</p:card>
+					</h:form>
+				</ui:repeat>
+			</p:panel>
+		</section>
 	</ui:define>
 </ui:composition>

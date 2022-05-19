@@ -99,7 +99,7 @@ public class VeiculoController implements Serializable {
 			this.service.salvar(veiculo);
 			this.veiculo = new Veiculo();
 			carregar();
-			Feedback.info("Veículo cadastrado com sucesso!");
+			
 		} catch (VeiculoException e) {
 			Feedback.erro(e.getMessage());
 		}catch(NullPointerException e) {
@@ -118,7 +118,6 @@ public class VeiculoController implements Serializable {
 		try {
 			this.service.excluir(veiculo);
 			carregar();
-			Feedback.info("Véiculo excluído com sucesso!");
 		} catch (VeiculoException e) {
 			Feedback.erro(e.getMessage());
 		}

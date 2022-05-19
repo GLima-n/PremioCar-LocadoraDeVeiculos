@@ -41,6 +41,7 @@ public class ReservaController implements Serializable {
 	private ReservaService serviceReserva;
 	@Inject
 	private Reserva reserva;
+	
 	@Inject
 	private Conversation conversation;
 
@@ -52,6 +53,13 @@ public class ReservaController implements Serializable {
 		String id = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idVeiculo");
 		return Long.parseLong(id);
 	}
+	
+	
+	public Long pegarParametroReserva() {
+		String id = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idReserva");
+		return Long.parseLong(id);
+	}
+	
 	
 	public AutentificaoLoginController getAutentifica() {
 		return autentifica;
@@ -117,6 +125,10 @@ public class ReservaController implements Serializable {
 
 	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
+	}
+	
+	public Reserva listarReserva() {
+		return this.serviceReserva.listarReservaPorId(pegarParametroReserva());
 	}
 
 	public Usuario listarPorCpf() {

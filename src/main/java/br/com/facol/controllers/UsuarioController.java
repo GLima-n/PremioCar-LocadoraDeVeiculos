@@ -69,7 +69,6 @@ public class UsuarioController implements Serializable {
 			 usuario = new Usuario();
 			 endereco = new Endereco();
 			 carregar();
-			 Feedback.info("Usuário Salvo Com Sucesso!");
 		} catch (UsuarioException e) {
 			 Feedback.erro(e.getMessage());
 		} catch (EnderecoException e) {

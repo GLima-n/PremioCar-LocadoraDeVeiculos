@@ -1,36 +1,96 @@
 <ui:composition template="/WEB-INF/template/MenuGenerico.xhtml"
-
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-
 	<ui:define name="corpo">
-			<section>
-			<p:graphicImage  height="550" width="100%" library="imagens" name="tela 2.jpg"></p:graphicImage>
-				<p:panelGrid columnClasses="ui-grid-col-6, ui-grid-col-6" columns="2">
-					<div class="conteudo-principal">
-						<h2>Citroën Ami</h2>
-						<p>Foi projetado como um carro urbano eficiente para ciclomotores que pode ser usado sem uma carteira de motorista. A categoria de carro é descrita como uma scooter fechada. Em muitas cidades, o carro pode ser estacionado na calçada gratuitamente.</p>
+
+		<div class="card">
+			<p:carousel circular="true" autoplayInterval="4000" numScroll="1">
+				<p:graphicImage height="550" width="100%" library="imagens"
+					name="tela 2.jpg"></p:graphicImage>
+				<p:graphicImage height="550" width="100%" library="imagens"
+					name="2 celular.jpg"></p:graphicImage>
+				<p:graphicImage height="550" width="100%" library="imagens"
+					name="3 tela.jpg"></p:graphicImage>
+				<p:graphicImage height="550" width="100%" library="imagens"
+					name="4 mulher banner.jpg"></p:graphicImage>
+			</p:carousel>
+		</div>
+		<div id="panel">
+			<p:panelGrid columns="2" style=" width: 1250px;">
+				<h:panelGrid columns="1">
+					<div style=" width: 300px;">
+						<h1 style="font-family: 'Poppins'; ">Nossos Produtos!</h1>
 					</div>
-					<p:commandLink >
-					<p:graphicImage style="border-radius: 4px;" height="400" width="520" library="imagens"
-						name="postagem1.jpg"></p:graphicImage>
-						</p:commandLink>
-				</p:panelGrid>
-
-				<p:panelGrid columnClasses="ui-grid-col-6, ui-grid-col-6"
-					columns="2">
-
-					<p:graphicImage height="400" library="imagens" name="juros.png"></p:graphicImage>
-					
-					<div class="conteudo-principal">
-						<h2>Título</h2>
-
-						<p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when </p>
-					</div>
-				</p:panelGrid>
-			</section>
+				</h:panelGrid>
+				<h:panelGrid columns="1">
+					<div style="font-size: 20px; font-family: 'Poppins'; margin-left: 150px;">
+					<p>Oferecemos soluções financeiras que se adequam ao seu
+						orçamento.<br/> Conheça e garanta os serviços PremioCar!</p>
+						</div>
+				</h:panelGrid>
+			</p:panelGrid>
+			<div style="text-align: center;">
+				<h:graphicImage style="width: 100%; height: 900px;"
+					library="imagens" name="2 beneficios.png" />
+			</div>
+			<p:panelGrid columnClasses="ui-grid-col-6, ui-grid-col-6" columns="2" style="margin-top: 100px;">
+				<div class="conteudo-principal">
+					<h2 style="font-family: 'Poppins'">Citroën Ami</h2>
+					<p style="font-size: 20px; font-family: 'Poppins';">Foi projetado como um carro urbano eficiente para
+						ciclomotores que pode ser usado sem uma carteira de motorista. A
+						categoria de carro é descrita como uma scooter fechada. Em muitas
+						cidades, o carro pode ser estacionado na calçada gratuitamente.</p>
+				</div>
+		    <p:carousel style="width: 650px;"  numScroll="1">
+                    
+                <p:commandLink>
+					<p:graphicImage style="border-radius: 4px;" height="500"
+						width="570" library="imagens" name="postagem1.jpg">
+					</p:graphicImage>
+				</p:commandLink>
+				<p:graphicImage style="border-radius: 4px;" height="500"
+						width="570" library="imagens" name="citroen2.jpg">
+					</p:graphicImage>
+					<p:graphicImage style="border-radius: 4px;" height="500"
+						width="570" library="imagens" name="citroen3.jpg">
+					</p:graphicImage>
+					<p:graphicImage style="border-radius: 4px;" height="500"
+						width="570" library="imagens" name="citroen5.jpg">
+					</p:graphicImage>
+            
+        </p:carousel>
+				
+			</p:panelGrid>
+			
+				<div style="text-align: center; margin-top: 100px; height: 450px; width: 1350px; background-image: url('resources/imagens/botões.jpg');">
+				<h:link outcome="CadastroUsuarioPrincipal.xhtml">
+				<h:graphicImage style="height: 270px; width: 270px; margin-top: 100px; margin-left: 650px;" library="imagens" name="alterar.png" />
+				</h:link>
+				
+				<p:commandLink onclick="PF('dialog').show();">
+				<h:graphicImage style="height: 270px; width: 270px; margin-top: 100px; float: right; margin-right: 100px;" library="imagens" name="imprimir.png" />
+				</p:commandLink>
+			</div>
+			
+			<div style="text-align: center; margin-top: 100px; height: 150px; width: 100%; background-image: url('resources/imagens/pronto.jpg');">
+				<p:button style="border-radius: 30px; font-size: 20px;  float: right; margin-top: 60px; margin-right: 30px; width: 150px;" onclick="abrir('https://www.google.com/maps/place/UNIFACOL/@-8.1182553,-35.2909129,15z/data=!4m5!3m4!1s0x0:0xe8221d5125a72cce!8m2!3d-8.1182553!4d-35.2909129')" value="Clique Aqui"></p:button>
+			</div>
+		</div>
+		
+		<p:dialog widgetVar="dialog" header="Selecione o veículo no qual deseja imprimir os dados">
+			
+			<ui:repeat var="reserva" value="#{reservaBean.reservas}">
+			<p:card style="display: inline-block;  text-align: center;">
+				<div>Modelo: #{reserva.veiculo.modelo}</div>
+				<p:commandButton value="Imprimir" action="TelaApresentacaoReserva.xhtml">
+				
+				</p:commandButton>
+			</p:card>
+			</ui:repeat>
+		</p:dialog>
+		
 	</ui:define>
 </ui:composition>

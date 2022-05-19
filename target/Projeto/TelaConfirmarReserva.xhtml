@@ -1,88 +1,112 @@
 <ui:composition template="/WEB-INF/template/MenuGenerico.xhtml"
-
-   xmlns="http://www.w3.org/1999/xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 	<h:outputScript library="js" name="mudar-cor.js"></h:outputScript>
 
 	<ui:define name="corpo">
-	<section id="conteudo-busca">	
-	<h:form id="form">
-	<p:panel header="Confirmação da Reserva">
-	<p:messages autoUpdate="true" closable="true"></p:messages>
-	<p:panelGrid columns="2" style="margin: 0;">
-	<p:graphicImage library="imagens" name="#{reservaBean.veiculo.pathImagem}" style="height: 300px; width: 400px;" ></p:graphicImage>
-	
-	<h1>Falta pouco para você ter o veículo à sua disposição!</h1>
-	<h2>Verifique os dados abaixo e em seguida confirme a reserva do seu veículo e desfrute de um veículo de extrema qualidade!</h2>
-	</p:panelGrid>
-	<p:panel header="Informações do Veículo">
-	<p:panelGrid columns="6" style="margin: 0;">
-	
-	<p:outputLabel value="Total de Dias" for="dias" ></p:outputLabel>
-	<p:inputText value="#{reservaBean.reserva.totalDias}" required="true" id="dias" size="30"></p:inputText>
-	
-	<p:outputLabel for="retirada" value="Data Retirada"/>
-    <p:calendar id="retirada" value="#{reservaBean.reserva.dataInicial}"  showOn="button"/>
+		<section class="conteudo-busca">
+			<h:form id="form">
+				<p:panel header="Confirmação da Reserva">
+					<p:messages autoUpdate="true" closable="true"></p:messages>
+					<p:panelGrid columns="2" style="margin: 0;">
+						<p:graphicImage library="imagens"
+							name="#{reservaBean.veiculo.pathImagem}"
+							style="height: 300px; width: 400px;"></p:graphicImage>
 
-	<p:outputLabel for="entrega" value="Data Entrega"/>
-    <p:calendar id="entrega" value="#{reservaBean.reserva.dataFinal}"  showOn="button"/>
-    
-	<p:outputLabel value="Valor total" for="total" ></p:outputLabel>
-	<p:inputText value="#{reservaBean.reserva.valorTotal}" required="true" id="total" size="30"></p:inputText>
-	
-	<p:outputLabel value="Modelo" for="modelo" ></p:outputLabel>
-	<p:inputText value="#{reservaBean.veiculo.modelo}" required="true" id="modelo" size="30"></p:inputText>
-	
-	<p:outputLabel value="Placa" for="placa" ></p:outputLabel>
-	<p:inputText value="#{reservaBean.veiculo.placa}" required="true" id="placa" size="30"></p:inputText>
-	
-	<p:outputLabel value="Valor Diária" for="diaria" ></p:outputLabel>
-	<p:inputNumber value="#{reservaBean.veiculo.valorDiaria}" required="true" id="diaria" size="30"></p:inputNumber>
-	
-	<p:outputLabel value="Tipo de Veículo" for="tipo" ></p:outputLabel>
-	<p:inputText value="#{reservaBean.veiculo.tipo}" required="true" id="tipo" size="30"></p:inputText>
-	</p:panelGrid>
-	</p:panel>
-	<p:panel header="Informações do Usuário">
-	<p:panelGrid columns="6" style="margin: 0;">
-	<p:outputLabel value="Nome" for="nome" ></p:outputLabel>
-	<p:inputText required="true" value="#{reservaBean.usuario.nome}" id="nome" size="30"></p:inputText>
-	
-	<p:outputLabel value="Sobrenome" for="sobrenome" ></p:outputLabel>
-	<p:inputText required="true" value="#{reservaBean.usuario.sobrenome}" id="sobrenome" size="30"></p:inputText>
-	
-	<p:outputLabel value="CPF" for="cpf" ></p:outputLabel>
-	<p:inputText required="true" value="#{reservaBean.usuario.cpf}" id="cpf" size="30"></p:inputText>
-	
-	<p:outputLabel value="Bairro" for="bairro" ></p:outputLabel>
-	<p:inputText required="true" value="#{reservaBean.usuario.endereco.bairro}" id="bairro" size="30"></p:inputText>
-	
-	<p:outputLabel value="CEP" for="cep" ></p:outputLabel>
-	<p:inputText required="true" value="#{reservaBean.usuario.endereco.cep}" id="cep" size="30"></p:inputText>
-	
-	<p:outputLabel value="Cidade" for="cidade" ></p:outputLabel>
-	<p:inputText required="true" value="#{reservaBean.usuario.endereco.cidade}" id="cidade" size="30"></p:inputText>
-	
-	<p:outputLabel value="Número" for="numero" ></p:outputLabel>
-	<p:inputText required="true" value="#{reservaBean.usuario.endereco.numero}" id="numero" size="30"></p:inputText>
-	
-	<p:outputLabel value="Rua" for="rua" ></p:outputLabel>
-	<p:inputText required="true" value="#{reservaBean.usuario.endereco.rua}" id="rua" size="30"></p:inputText>
-	
-	<p:outputLabel value="UF" for="uf" ></p:outputLabel>
-	<p:inputText required="true" value="#{reservaBean.usuario.endereco.uf}" id="uf" size="30"></p:inputText>
-	
-	</p:panelGrid>
-	</p:panel>
-		<p:commandButton update="form" onclick="mudarCor()" action="#{reservaBean.salvarReserva()}"  value="Confirmar Reserva">		
-		</p:commandButton>
-	</p:panel>
-	</h:form>
-	</section>
-	
+						<h1>Falta pouco para você ter o veículo à sua disposição!</h1>
+						<h2>Verifique os dados abaixo e em seguida confirme a reserva
+							do seu veículo e desfrute de um veículo de extrema qualidade!</h2>
+					</p:panelGrid>
+					<p:panel header="Informações do Veículo">
+						<p:panelGrid columns="6" style="margin: 0;">
+
+							<p:outputLabel value="Total de Dias" for="dias"></p:outputLabel>
+							<p:inputText value="#{reservaBean.reserva.totalDias}"
+								required="true" id="dias" size="30"></p:inputText>
+
+							<p:outputLabel for="retirada" value="Data Retirada" />
+							<p:calendar id="retirada"
+								value="#{reservaBean.reserva.dataInicial}" showOn="button" />
+
+							<p:outputLabel for="entrega" value="Data Entrega" />
+							<p:calendar id="entrega" value="#{reservaBean.reserva.dataFinal}"
+								showOn="button" />
+
+							<p:outputLabel value="Valor total" for="total"></p:outputLabel>
+							<p:inputText value="#{reservaBean.reserva.valorTotal}"
+								required="true" id="total" size="30"></p:inputText>
+
+							<p:outputLabel value="Modelo" for="modelo"></p:outputLabel>
+							<p:inputText value="#{reservaBean.veiculo.modelo}"
+								required="true" id="modelo" size="30"></p:inputText>
+
+							<p:outputLabel value="Placa" for="placa"></p:outputLabel>
+							<p:inputText value="#{reservaBean.veiculo.placa}" required="true"
+								id="placa" size="30"></p:inputText>
+
+							<p:outputLabel value="Valor Diária" for="diaria"></p:outputLabel>
+							<p:inputNumber value="#{reservaBean.veiculo.valorDiaria}"
+								required="true" id="diaria" size="30"></p:inputNumber>
+
+							<p:outputLabel value="Tipo de Veículo" for="tipo"></p:outputLabel>
+							<p:inputText value="#{reservaBean.veiculo.tipo}" required="true"
+								id="tipo" size="30"></p:inputText>
+						</p:panelGrid>
+					</p:panel>
+					<p:panel header="Informações do Usuário">
+						<p:panelGrid columns="6" style="margin: 0;">
+							<p:outputLabel value="Nome" for="nome"></p:outputLabel>
+							<p:inputText required="true" value="#{reservaBean.usuario.nome}"
+								id="nome" size="30"></p:inputText>
+
+							<p:outputLabel value="Sobrenome" for="sobrenome"></p:outputLabel>
+							<p:inputText required="true"
+								value="#{reservaBean.usuario.sobrenome}" id="sobrenome"
+								size="30"></p:inputText>
+
+							<p:outputLabel value="CPF" for="cpf"></p:outputLabel>
+							<p:inputText required="true" value="#{reservaBean.usuario.cpf}"
+								id="cpf" size="30"></p:inputText>
+
+							<p:outputLabel value="Bairro" for="bairro"></p:outputLabel>
+							<p:inputText required="true"
+								value="#{reservaBean.usuario.endereco.bairro}" id="bairro"
+								size="30"></p:inputText>
+
+							<p:outputLabel value="CEP" for="cep"></p:outputLabel>
+							<p:inputText required="true"
+								value="#{reservaBean.usuario.endereco.cep}" id="cep" size="30"></p:inputText>
+
+							<p:outputLabel value="Cidade" for="cidade"></p:outputLabel>
+							<p:inputText required="true"
+								value="#{reservaBean.usuario.endereco.cidade}" id="cidade"
+								size="30"></p:inputText>
+
+							<p:outputLabel value="Número" for="numero"></p:outputLabel>
+							<p:inputText required="true"
+								value="#{reservaBean.usuario.endereco.numero}" id="numero"
+								size="30"></p:inputText>
+
+							<p:outputLabel value="Rua" for="rua"></p:outputLabel>
+							<p:inputText required="true"
+								value="#{reservaBean.usuario.endereco.rua}" id="rua" size="30"></p:inputText>
+
+							<p:outputLabel value="UF" for="uf"></p:outputLabel>
+							<p:inputText required="true"
+								value="#{reservaBean.usuario.endereco.uf}" id="uf" size="30"></p:inputText>
+
+						</p:panelGrid>
+					</p:panel>
+					<p:commandButton update="form" onclick="mudarCor()"
+						action="#{reservaBean.salvarReserva()}" value="Confirmar Reserva">
+					</p:commandButton>
+				</p:panel>
+			</h:form>
+		</section>
+
 	</ui:define>
 </ui:composition>

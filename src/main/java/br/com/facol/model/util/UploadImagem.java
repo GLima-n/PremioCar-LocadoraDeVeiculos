@@ -2,10 +2,6 @@ package br.com.facol.model.util;
 
 import java.io.File;
 import java.io.Serializable;
-
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-
 import org.primefaces.model.file.UploadedFile;
 
 public class UploadImagem implements Serializable {

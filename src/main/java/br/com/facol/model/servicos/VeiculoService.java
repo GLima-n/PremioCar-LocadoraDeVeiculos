@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import br.com.facol.model.dao.VeiculoRepositorio;
 import br.com.facol.model.entidades.Veiculo;
 import br.com.facol.model.exceptions.VeiculoException;
+import br.com.facol.model.util.Feedback;
 
 public class VeiculoService implements Serializable {
 
@@ -17,7 +18,8 @@ public class VeiculoService implements Serializable {
 	private VeiculoRepositorio repositorio;
 
 	public void salvar(Veiculo veiculo) throws VeiculoException {
-		     
+		
+		   
 			if (veiculo.getPlaca().length() < 7) {
 				throw new VeiculoException("Placa inválida. Insira uma placa com 7 caracteres");
 			}
@@ -36,9 +38,12 @@ public class VeiculoService implements Serializable {
 
 			if (veiculo.getCor().length() < 4) {
 				throw new VeiculoException("Informe uma cor com 4 caracteres");
-			} else {
+			}else {
 				this.repositorio.salvar(veiculo);
-			}
+				Feedback.info("Salvo com sucesso!");
+				
+				
+			}    
 	}
 
 	public void excluir(Veiculo veiculo) throws VeiculoException {
@@ -55,10 +60,12 @@ public class VeiculoService implements Serializable {
 	}
 
 	public List<Veiculo> listarPorModelo(String modelo) {
+		
 
 		return this.repositorio.listarPorModelo(modelo);
-
-	}
+		
+		}
+	
 
 	public List<Veiculo> listar() {
 		return this.repositorio.listarTudo(Veiculo.class, "Select u from Veiculo u");

@@ -7,25 +7,24 @@
 	xmlns:p="http://primefaces.org/ui">
 	
 	<h:outputScript library="js" name="mudar-cor.js"></h:outputScript>
+		<h:outputStylesheet library="css" name="estilo.css"></h:outputStylesheet>
+	
 
 	<ui:define name="corpo">
-	<section id="conteudo-busca">	
+	<section class="conteudo-busca">	
 	<h:form id="form">
-	<p:panel >
 
-	<p:panelGrid columns="2" style="margin: 0;">
-	</p:panelGrid>
 	<p:panel header="Informações do Veículo">
-	<p:panelGrid columns="6" style="margin: 0;" value="#{reservaBean.reservas}" var="reserva">
+	<p:panelGrid columns="6" style="margin: 0;">
 	
 	<p:outputLabel value="Total de Dias" for="dias" ></p:outputLabel>
-	<p:inputText value="#{reserva.totalDias}" required="true" id="dias" size="20"></p:inputText>
-	
+	<p:inputText value="#{reserva.totalDias}" required="true" id="dias" size="25"></p:inputText>
+
 	<p:outputLabel for="retirada" value="Data Retirada"/>
-    <p:calendar id="retirada" value="#{reserva.dataInicial}"  showOn="button"/>
+    <p:calendar id="retirada" value="#{reserva.dataInicial}"  size="25"/>
 
 	<p:outputLabel for="entrega" value="Data Entrega"/>
-    <p:calendar id="entrega" value="#{reserva.dataFinal}"  showOn="button"/>
+    <p:calendar id="entrega" value="#{reserva.dataFinal}"  size="25"/>
     
 	<p:outputLabel value="Valor total" for="total" ></p:outputLabel>
 	<p:inputText value="#{reserva.valorTotal}" required="true" id="total" size="25"></p:inputText>
@@ -45,17 +44,18 @@
 	</p:panel>
 	<p:panel header="Informações do Usuário">
 	<p:panelGrid columns="6" style="margin: 0;">
+	
 	<p:outputLabel value="Nome" for="nome" ></p:outputLabel>
 	<p:inputText required="true" value="#{reserva.usuario.nome}" id="nome" size="25"></p:inputText>
-	
-	<p:outputLabel value="Sobrenome" for="sobrenome" ></p:outputLabel>
-	<p:inputText required="true" value="#{reserva.usuario.sobrenome}" id="sobrenome" size="25"></p:inputText>
 	
 	<p:outputLabel value="CPF" for="cpf" ></p:outputLabel>
 	<p:inputText required="true" value="#{reserva.usuario.cpf}" id="cpf" size="25"></p:inputText>
 	
 	<p:outputLabel value="Bairro" for="bairro" ></p:outputLabel>
 	<p:inputText required="true" value="#{reserva.usuario.endereco.bairro}" id="bairro" size="25"></p:inputText>
+	
+	<p:outputLabel value="Sobrenome" for="sobrenome" ></p:outputLabel>
+	<p:inputText required="true" value="#{reserva.usuario.sobrenome}" id="sobrenome" size="25"></p:inputText>
 	
 	<p:outputLabel value="CEP" for="cep" ></p:outputLabel>
 	<p:inputText required="true" value="#{reserva.usuario.endereco.cep}" id="cep" size="25"></p:inputText>
@@ -73,9 +73,14 @@
 	<p:inputText required="true" value="#{reserva.usuario.endereco.uf}" id="uf" size="25"></p:inputText>
 	</p:panelGrid>
 	</p:panel>
-	</p:panel>
 	</h:form>
+	<p:button class="botao" ajax="true" onclick="imprimir()" value="Imprimir"></p:button>
 	</section>
-	
+	<script>
+		function imprimir(evt){
+			window.print()
+			evt.preventDefault()
+		}
+	</script>
 	</ui:define>
 </ui:composition>

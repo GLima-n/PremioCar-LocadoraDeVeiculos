@@ -1,30 +1,34 @@
 package br.com.facol.model.dao;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.List;
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import br.com.facol.connectionfactory.ConnectionFactory;
+import br.com.facol.model.util.Feedback;
 import br.com.facol.model.util.Identificador;
 
 public abstract class RepositorioGenerico<T extends Identificador> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private EntityManager entityManager = ConnectionFactory.getEntityManager();
 
 	public RepositorioGenerico() {
 
 	}
+
 	public void salvar(T t) {
 		try {
 			this.entityManager.getTransaction().begin();
 			if (t.getId() == null) {
 				this.entityManager.persist(t);
 			} else {
-				this.entityManager.merge(t);
-			}
+				this.entityManager.merge(t);			}
 			this.entityManager.getTransaction().commit();
 		} catch (RuntimeException e) {
 			this.entityManager.getTransaction().rollback();
@@ -58,6 +62,7 @@ public abstract class RepositorioGenerico<T extends Identificador> implements Se
 		try {
 			this.entityManager.getTransaction().begin();
 			this.entityManager.remove(entityManager.getReference(classe, id));
+			Feedback.info("Excluído com sucesso!");
 			this.entityManager.getTransaction().commit();
 		} catch (RuntimeException e) {
 			this.entityManager.getTransaction().rollback();

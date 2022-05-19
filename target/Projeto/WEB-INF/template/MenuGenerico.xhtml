@@ -8,50 +8,97 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>PremioCar - Locadora de Veículos</title>
 	<script src="https://kit.fontawesome.com/197222b021.js"></script>
+	<h:outputScript library="js" name="redirecionar-link.js"></h:outputScript>
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'/>
 	<h:outputStylesheet library="css" name="estilo.css"></h:outputStylesheet>
 </h:head>
 <h:body>
 	<header>
-    <h:form>
-    <p:commandLink action="TelaPrincipal.xhtml">
-	<h:graphicImage style="width: 200px; height: 100px; margin-left: 30px;"  library="imagens" name="LOGO AZUL.png" />
-	</p:commandLink>
-        <p:menubar>
-        	<p:menuitem value="Home" onclick="window.location.href='TelaPrincipal.xhtml'"></p:menuitem>
-        
-			<p:menuitem value="Usuário" onclick="window.location.href='CadastroUsuarioPrincipal.xhtml'"></p:menuitem>
-			
-            <p:submenu label="Veículos">
-                <p:menuitem value="Cadastrar Veículo" onclick="window.location.href='CadastroVeiculo.xhtml'"/>
-                <p:menuitem value="Página de Veículos" onclick="window.location.href='TelaVeiculo.xhtml'"/>
-                
-            </p:submenu>
-            
-            <p:menuitem value="Reservas" onclick="window.location.href='ListaDeReservas.xhtml'"></p:menuitem>
-                       
-            <f:facet name="options">
-                 <p:inputText style="margin-left: 10px;" size="25" value="#{buscaBean.modelo}" placeholder="Pesquise aqui por seu veículo"/>
-                    <p:commandButton value="Buscar" ajax="false" action="TelaBuscaVeiculo.xhtml?faces-redirect=true">
-                    </p:commandButton>
-                <p:button style="margin-left: 20px; position: relative; left: 13px;" value="Logout" href="index.xhtml" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
-                <div style="display: inline; float: right; margin-top: 10px;">
-                <span  style="margin-left: 40px;  color: #19395a; display: block;">Bem-Vindo!</span>
-                <span  style="margin-left: 40px; color: #19395a;">Olá, #{autentificarBean.usuario.nome}!</span>
-                </div>
-            </f:facet>
-        </p:menubar>
-    </h:form>
+		<h:form>
+			<p:commandLink action="TelaPrincipal.xhtml">
+				<h:graphicImage
+					style="width: 200px; height: 100px; margin-left: 30px;"
+					library="imagens" name="LOGO AZUL.png" />
+			</p:commandLink>
+			<p:menubar>
+				<p:menuitem value="Home"
+					onclick="window.location.href='TelaPrincipal.xhtml'"></p:menuitem>
+
+				<p:menuitem value="Usuário"
+					onclick="window.location.href='CadastroUsuarioPrincipal.xhtml'"></p:menuitem>
+
+				<p:submenu label="Veículos">
+					<p:menuitem value="Cadastrar Veículo"
+						onclick="window.location.href='CadastroVeiculo.xhtml'" />
+					<p:menuitem value="Página de Veículos"
+						onclick="window.location.href='TelaVeiculo.xhtml'" />
+
+				</p:submenu>
+
+				<p:menuitem value="Reservas"
+					onclick="window.location.href='ListaDeReservas.xhtml'"></p:menuitem>
+
+				<f:facet name="options">
+					<p:inputText style="margin-left: 10px;" size="25"
+						value="#{buscaBean.modelo}"
+						placeholder="Pesquise aqui por seu veículo" />
+					<p:commandButton value="Buscar" 
+						action="TelaBuscaVeiculo.xhtml?faces-redirect=true">
+					</p:commandButton>
+					<p:button
+						style="margin-left: 20px; position: relative; left: 13px;"
+						value="Logout" href="index.xhtml" icon="pi pi-fw pi-sign-out"
+						styleClass="ui-button-info" />
+					<div style="display: inline; float: right; margin-top: 10px;">
+						<span style="margin-left: 40px; color: #19395a; display: block;">Bem-Vindo!</span>
+						<span style="margin-left: 40px; color: #19395a;">Olá,
+							#{autentificarBean.usuario.nome}!</span>
+					</div>
+				</f:facet>
+			</p:menubar>
+		</h:form>
 		<div style="clear: both;"></div>
 	</header>
 	<ui:insert name="corpo" />
 	<footer id="rodape">
 		<div id="icone">
-		<a href="https://www.instagram.com/"><i><h:graphicImage width="40" height="40" library="imagens" name="beacons.png" />
-		</i>
-		</a>
+			<a onclick="abrir('https://beacons.ai/premiocar')"><i><h:graphicImage style="margin-top: 60px; margin-right: 40px;" width="40" height="40" library="imagens" name="beacons.png" /> </i> </a>
 		</div>
 		<div id="conteudo-rodape">
-			<i class="far fa-copyright"></i> Copyright 2022 Locadora de Veículos
+		
+			<div style="position: relative; bottom: 30px;"><img style="height: 100px; width: 200px; margin-left: 20px;" src="resources/imagens/LOGO AZUL.png" /></div>
+			
+			<div style="position: relative; left: 80px; bottom: 70px;"><i class="far fa-copyright"></i> 2022 Copyright-PremioCar</div>
+			
+			<div id="topicos">
+			<div>
+				<h4>Início</h4>
+				<ul>
+					<li><a>Home</a></li><br/>
+					<li><a>Véiculos</a></li><br/>
+					<li><a>Reserva</a></li><br/>
+				</ul>
+			</div>
+			
+			<div>
+				<h4>Sobre nós</h4>
+				<ul>
+					<li><a>Quem somos</a></li><br/>
+					<li><a>Contato</a></li><br/>
+					<li><a>Blog</a></li><br/>
+				</ul>
+			</div>
+			
+			<div>
+				<h4>Suporte</h4>
+				<ul>
+					<li><a>FAQ</a></li><br/>
+					<li><a>Telefones</a></li><br/>
+					<li><a>Chat</a></li><br/>
+				</ul>
+			</div>
+			</div>
+			
 		</div>
 		<div style="clear: both;"></div>
 	</footer>

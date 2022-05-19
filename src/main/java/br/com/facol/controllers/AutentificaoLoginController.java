@@ -3,7 +3,7 @@ package br.com.facol.controllers;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -12,7 +12,7 @@ import br.com.facol.model.util.AutentificarLogin;
 import br.com.facol.model.util.Feedback;
 
 @Named("autentificarBean")
-@ApplicationScoped
+@SessionScoped
 public class AutentificaoLoginController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
