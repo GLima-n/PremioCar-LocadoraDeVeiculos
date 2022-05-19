@@ -1,8 +1,8 @@
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/entidades/Usuario.java
+/home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/controllers/PaginadorController.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/servicos/VeiculoService.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/entidades/Reserva.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/controllers/AutentificaoLoginController.java
-/home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/controllers/FileDownloadView.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/entidades/Endereco.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/dao/UsuarioRepositorio.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/controllers/ReservaController.java
@@ -14,7 +14,6 @@
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/exceptions/UsuarioException.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/entidades/Veiculo.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/entidades/Pessoa.java
-/home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/controllers/RepeatPaginator.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/dao/VeiculoRepositorio.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/model/dao/ReservaRepositorio.java
 /home/henrique/web/PremioCar-LocadoraDeVeiculos/src/main/java/br/com/facol/connectionfactory/ConnectionFactory.java

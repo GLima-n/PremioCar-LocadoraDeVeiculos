@@ -1,10 +1,10 @@
 br/com/facol/connectionfactory/ConnectionFactory.class
-br/com/facol/controllers/RepeatPaginator.class
 br/com/facol/model/util/UploadImagem.class
 br/com/facol/controllers/ReservaController.class
 br/com/facol/model/exceptions/EnderecoException.class
 br/com/facol/model/entidades/Endereco.class
 br/com/facol/controllers/VeiculoController.class
+br/com/facol/controllers/PaginadorController.class
 br/com/facol/model/util/Feedback.class
 br/com/facol/model/entidades/Reserva.class
 br/com/facol/model/dao/RepositorioGenerico.class
@@ -23,6 +23,5 @@ br/com/facol/controllers/BuscaVeiculoController.class
 br/com/facol/model/exceptions/ReservaException.class
 br/com/facol/model/exceptions/UsuarioException.class
 br/com/facol/model/dao/VeiculoRepositorio.class
-br/com/facol/controllers/FileDownloadView.class
 br/com/facol/controllers/UsuarioController.class
 br/com/facol/model/util/AutentificarLogin.class

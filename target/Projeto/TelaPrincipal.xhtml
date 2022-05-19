@@ -80,10 +80,11 @@
 			</div>
 		</div>
 		
-		<p:dialog widgetVar="dialog" header="Selecione o veículo no qual deseja imprimir os dados">
+		<p:dialog widgetVar="dialog" header="SELECIONE A RESERVA PARA IMPRESSÃO DOS DADOS">
 			
 			<ui:repeat var="reserva" value="#{reservaBean.reservas}">
 			<p:card style="display: inline-block;  text-align: center;">
+				<div><p:graphicImage style="width: 150px; height: 100px;" library="imagens" name="#{reserva.veiculo.pathImagem}"></p:graphicImage></div>
 				<div>Modelo: #{reserva.veiculo.modelo}</div>
 				<p:commandButton value="Imprimir" action="TelaApresentacaoReserva.xhtml">
 				
