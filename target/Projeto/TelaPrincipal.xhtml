@@ -84,11 +84,13 @@
 			
 			<ui:repeat var="reserva" value="#{reservaBean.reservas}">
 			<p:card style="display: inline-block;  text-align: center;">
+			<h:form>
 				<div><p:graphicImage style="width: 150px; height: 100px;" library="imagens" name="#{reserva.veiculo.pathImagem}"></p:graphicImage></div>
 				<div>Modelo: #{reserva.veiculo.modelo}</div>
-				<p:commandButton value="Imprimir" action="TelaApresentacaoReserva.xhtml">
-				
+				<p:commandButton value="Imprimir" action="#{relatorioController.gerarRelatorio()}" ajax="false" onclick="this.form.target='_blank'">
+					<f:param name="idRelatorio" value="#{reserva.id}"></f:param>
 				</p:commandButton>
+			</h:form>
 			</p:card>
 			</ui:repeat>
 		</p:dialog>

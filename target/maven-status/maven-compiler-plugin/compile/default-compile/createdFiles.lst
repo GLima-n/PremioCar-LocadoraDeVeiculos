@@ -23,5 +23,7 @@ br/com/facol/controllers/BuscaVeiculoController.class
 br/com/facol/model/exceptions/ReservaException.class
 br/com/facol/model/exceptions/UsuarioException.class
 br/com/facol/model/dao/VeiculoRepositorio.class
+br/com/facol/model/util/ConexaoJasper.class
 br/com/facol/controllers/UsuarioController.class
+br/com/facol/controllers/RelatorioController.class
 br/com/facol/model/util/AutentificarLogin.class
