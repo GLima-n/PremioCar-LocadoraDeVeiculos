@@ -10,7 +10,7 @@ import javax.inject.Named;
 
 import br.com.facol.model.entidades.Veiculo;
 
-@Named
+@Named("repeatPaginator")
 @ViewScoped
 public class PaginadorController implements Serializable{
 

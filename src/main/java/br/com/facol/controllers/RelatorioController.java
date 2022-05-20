@@ -1,12 +1,12 @@
 package br.com.facol.controllers;
 
-import java.io.ByteArrayInputStream;
+import java.awt.Image;
 import java.io.ByteArrayOutputStream;
+
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.io.Serializable;
-import java.sql.Connection;
-import java.util.Collection;
+
 import java.util.HashMap;
 
 import javax.enterprise.context.RequestScoped;
@@ -14,9 +14,9 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.ImageIcon;
 
-import br.com.facol.model.dao.ReservaRepositorio;
-import br.com.facol.model.entidades.Reserva;
+
 import br.com.facol.model.util.ConexaoJasper;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -44,12 +44,16 @@ public class RelatorioController implements Serializable {
 	public void gerarRelatorio() {
 		try {
 			this.context = FacesContext.getCurrentInstance();
+			FacesContext context = FacesContext.getCurrentInstance();
 			this.response = (HttpServletResponse) context.getExternalContext().getResponse();
+			
+			ImageIcon gto = new ImageIcon(context.getExternalContext().getRealPath("WEB-INF/LOGO AZUL.png"));
 			String id = pegarId();
 			HashMap<String, Object> dados = new HashMap();
 			dados.put("id", id);
+			dados.put("imagem", gto.getImage());
+			dados.put("id", id);
 			this.baos = new ByteArrayOutputStream();
-			FacesContext context = FacesContext.getCurrentInstance();
 			String fonte = context.getExternalContext().getRealPath("WEB-INF/Reserva.jrxml");
 			JasperReport relatorioCompilado = JasperCompileManager.compileReport(fonte);
 			JasperPrint relatorioPrenchido = JasperFillManager.fillReport(relatorioCompilado, dados,new ConexaoJasper().getConnection());

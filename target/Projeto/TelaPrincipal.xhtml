@@ -80,19 +80,31 @@
 			</div>
 		</div>
 		
-		<p:dialog widgetVar="dialog" header="SELECIONE A RESERVA PARA IMPRESSÃO DOS DADOS">
-			
-			<ui:repeat var="reserva" value="#{reservaBean.reservas}">
-			<p:card style="display: inline-block;  text-align: center;">
-			<h:form>
-				<div><p:graphicImage style="width: 150px; height: 100px;" library="imagens" name="#{reserva.veiculo.pathImagem}"></p:graphicImage></div>
-				<div>Modelo: #{reserva.veiculo.modelo}</div>
-				<p:commandButton value="Imprimir" action="#{relatorioController.gerarRelatorio()}" ajax="false" onclick="this.form.target='_blank'">
-					<f:param name="idRelatorio" value="#{reserva.id}"></f:param>
-				</p:commandButton>
-			</h:form>
-			</p:card>
-			</ui:repeat>
+		<p:dialog widgetVar="dialog" header="SELECIONE UMA OPÇÃO PARA IMPRESSÃO">
+		<p:dataTable style="margin-top: 10px;"
+				value="#{reservaBean.reservas}" var="reserva" id="tabela"
+				paginator="true" rows="5">
+
+				<p:column headerText="Nome" width="150">
+					<p:outputLabel value="#{reserva.usuario.nome}"></p:outputLabel>
+				</p:column>
+
+				<p:column headerText="Modelo Veículo" width="150">
+					<p:outputLabel value="#{reserva.veiculo.modelo}"></p:outputLabel>
+				</p:column>
+				
+				<p:column headerText="Valor Total" width="150">
+					<p:outputLabel value="#{reserva.valorTotal}"></p:outputLabel>
+				</p:column>
+				
+				<p:column headerText="Imprimir" width="150">
+					<h:form>
+					<p:commandButton value="Imprimir" action="#{relatorioController.gerarRelatorio()}" ajax="false" onclick="this.form.target='_blank'">
+						<f:param name="idRelatorio" value="#{reserva.id}"></f:param>
+					</p:commandButton>
+					</h:form>
+				</p:column>
+			</p:dataTable>
 		</p:dialog>
 		
 	</ui:define>
