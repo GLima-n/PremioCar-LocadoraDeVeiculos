@@ -1,6 +1,5 @@
 package br.com.facol.controllers;
 
-import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 
 import java.io.IOException;
@@ -11,7 +10,6 @@ import java.util.HashMap;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.ImageIcon;
@@ -43,15 +41,17 @@ public class RelatorioController implements Serializable {
 
 	public void gerarRelatorio() {
 		try {
+			
 			this.context = FacesContext.getCurrentInstance();
 			FacesContext context = FacesContext.getCurrentInstance();
 			this.response = (HttpServletResponse) context.getExternalContext().getResponse();
 			
-			ImageIcon gto = new ImageIcon(context.getExternalContext().getRealPath("WEB-INF/LOGO AZUL.png"));
+			ImageIcon gto = new ImageIcon(context.getExternalContext().getRealPath("WEB-INF/LOGO AZUL.jpg"));
+			ImageIcon gto1 = new ImageIcon(context.getExternalContext().getRealPath("WEB-INF/chao.jpg"));
 			String id = pegarId();
 			HashMap<String, Object> dados = new HashMap();
-			dados.put("id", id);
 			dados.put("imagem", gto.getImage());
+			dados.put("imagem2", gto1.getImage());
 			dados.put("id", id);
 			this.baos = new ByteArrayOutputStream();
 			String fonte = context.getExternalContext().getRealPath("WEB-INF/Reserva.jrxml");
