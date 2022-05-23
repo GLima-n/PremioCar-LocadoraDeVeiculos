@@ -40,8 +40,6 @@ public class VeiculoService implements Serializable {
 				throw new VeiculoException("Informe uma cor com 4 caracteres");
 			}else {
 				this.repositorio.salvar(veiculo);
-				Feedback.info("Salvo com sucesso!");
-				
 				
 			}    
 	}

@@ -1,7 +1,6 @@
 package br.com.facol.model.dao;
 
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 
 
@@ -21,7 +20,8 @@ public abstract class RepositorioGenerico<T extends Identificador> implements Se
 	public RepositorioGenerico() {
 
 	}
-
+	
+	
 	public void salvar(T t) {
 		try {
 			this.entityManager.getTransaction().begin();
