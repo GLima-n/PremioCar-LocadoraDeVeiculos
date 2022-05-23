@@ -12,7 +12,6 @@
 
 	<ui:define name="corpo">
 	<section class="conteudo-busca">	
-	<h:form id="form">
 
 	<p:panel header="Informações do Veículo/Reserva">
 	<p:panelGrid columns="6" style="margin: 0;">
@@ -73,8 +72,11 @@
 	<p:inputText required="true" value="#{reserva.usuario.endereco.uf}" id="uf" size="25"></p:inputText>
 	</p:panelGrid>
 	</p:panel>
+	<h:form id="form">
+	<p:commandButton class="botao" icon="pi pi-save" value="Imprimir"  action="#{relatorioController.gerarRelatorio()}" ajax="false" onclick="this.form.target='_blank'">
+		<f:param name="idRelatorio" value="#{reserva.id}"></f:param>
+	</p:commandButton>
 	</h:form>
-	<p:button class="botao" ajax="true" onclick="imprimir()" value="Imprimir"></p:button>
 	</section>
 	<script>
 		function imprimir(evt){
