@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 
 import br.com.facol.connectionfactory.ConnectionFactory;
 import br.com.facol.model.entidades.Usuario;
+import br.com.facol.model.exceptions.UsuarioException;
 import br.com.facol.model.util.Feedback;
 
 public class UsuarioRepositorio extends RepositorioGenerico<Usuario> {
@@ -17,17 +18,18 @@ public class UsuarioRepositorio extends RepositorioGenerico<Usuario> {
 	}
 	
 	@Override
-	public void salvar(Usuario t) {
+	public void salvar(Usuario t)  {
 		try {
 			this.entityManager.getTransaction().begin();
 			if (t.getId() == null) {
 				for (Usuario usuario : listarTudo(Usuario.class, "Select u from Usuario u")) {
 					if (usuario.getCpf().equals(t.getCpf())) {
-						Feedback.erro("CPF já cadastrado");
+						throw new UsuarioException("CPF já cadastrado");
+						
 					}
 					
 					if (usuario.getEmail().equals(t.getEmail())) {
-						Feedback.erro("E-mail já cadastrado");
+						throw new UsuarioException("E-mail já cadastrado");
 					}
 
 				}
@@ -44,6 +46,8 @@ public class UsuarioRepositorio extends RepositorioGenerico<Usuario> {
 		RuntimeException e) {
 			this.entityManager.getTransaction().rollback();
 			e.printStackTrace();
+		} catch (UsuarioException e) {
+			Feedback.erro(e.getMessage());
 		}
 	}
 

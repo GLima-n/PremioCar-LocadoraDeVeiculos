@@ -46,7 +46,7 @@
 				</div>
 		    <p:carousel style="width: 650px;"  numScroll="1">
                     
-                <p:commandLink>
+                <p:commandLink action="TelaApresentacaoVeiculo.xhtml?faces-redirect=trueidVeiculo=36">
 					<p:graphicImage style="border-radius: 4px;" height="500"
 						width="570" library="imagens" name="postagem1.jpg">
 					</p:graphicImage>
@@ -99,7 +99,9 @@
 				
 				<p:column headerText="Imprimir" width="150">
 					<h:form>
-					<p:commandButton value="Imprimir" action="#{relatorioController.gerarRelatorio()}" ajax="false" onclick="this.form.target='_blank'">
+					<p:commandButton value="Imprimir" icon="pi pi-save" action="#{relatorioController.gerarRelatorio()}" ajax="false" 
+					onclick="this.form.target='_blank'">
+					
 						<f:param name="idRelatorio" value="#{reserva.id}"></f:param>
 					</p:commandButton>
 					</h:form>

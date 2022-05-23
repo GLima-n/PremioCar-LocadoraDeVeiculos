@@ -4,7 +4,6 @@ br/com/facol/controllers/ReservaController.class
 br/com/facol/model/exceptions/EnderecoException.class
 br/com/facol/model/entidades/Endereco.class
 br/com/facol/controllers/VeiculoController.class
-br/com/facol/controllers/Teste.class
 br/com/facol/controllers/PaginadorController.class
 br/com/facol/model/util/Feedback.class
 br/com/facol/model/entidades/Reserva.class
