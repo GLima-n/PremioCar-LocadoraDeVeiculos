@@ -15,43 +15,43 @@ import br.com.facol.model.entidades.Veiculo;
 public class PaginadorController implements Serializable{
 
     private static final long serialVersionUID = 1L;
-    
     private static final int DEFAULT_RECORDS_NUMBER = 6;
     private static final int DEFAULT_PAGE_INDEX = 1;
+    
     @Inject
     private VeiculoController delegate;
-    private int records;
-    private int recordsTotal;
-    private int pageIndex;
-    private int pages;
-    private List<Veiculo> model;
+    private int registros;
+    private int totalRegistros;
+    private int indicePagina;
+    private int paginas;
+    private List<Veiculo> modelo;
     
     public PaginadorController() {
         delegate = new VeiculoController();
-        this.records = DEFAULT_RECORDS_NUMBER;
-        this.pageIndex = DEFAULT_PAGE_INDEX;
-        // Get Model
+        this.registros = DEFAULT_RECORDS_NUMBER;
+        this.indicePagina = DEFAULT_PAGE_INDEX;
+        
     }
     @PostConstruct
     public void init() {
-    	 // Get Model
+    	 
     	try {
-        this.model = delegate.fetchCurrentList(getFirst(), getFirst()+records);
-        this.recordsTotal = delegate.getListSize();
+        this.modelo = delegate.fetchCurrentList(getPrimeiro(), getPrimeiro()+registros);
+        this.totalRegistros = delegate.getListSize();
 
-        if (records > 0) {
-            pages = records <= 0 ? 1 : recordsTotal / records;
+        if (registros > 0) {
+            paginas = registros <= 0 ? 1 : totalRegistros / registros;
 
-            if (recordsTotal % records > 0) {
-                pages++;
+            if (totalRegistros % registros > 0) {
+                paginas++;
             }
 
-            if (pages == 0) {
-                pages = 1;
+            if (paginas == 0) {
+                paginas = 1;
             }
         } else {
-            records = 1;
-            pages = 1;
+            registros = 1;
+            paginas = 1;
         }
 
         updateModel();
@@ -69,63 +69,63 @@ public class PaginadorController implements Serializable{
     }
     
     public void updateModel() {
-        int fromIndex = getFirst();
-        int toIndex = getFirst() + records;
+        int fromIndex = getPrimeiro();
+        int toIndex = getPrimeiro() + registros;
 
-        if(toIndex > this.recordsTotal) {
-            toIndex = this.recordsTotal;
+        if(toIndex > this.totalRegistros) {
+            toIndex = this.totalRegistros;
         }
 
-         setModel(delegate.fetchCurrentList(fromIndex, toIndex));
+         setModelo(delegate.fetchCurrentList(fromIndex, toIndex));
     }
 
-    public void next() {
-        if(this.pageIndex < pages) {
-            this.pageIndex++;
+    public void proximo() {
+        if(this.indicePagina < paginas) {
+            this.indicePagina++;
         }
 
         updateModel();
     }
 
     public void prev() {
-        if(this.pageIndex > 1) {
-            this.pageIndex--;
+        if(this.indicePagina > 1) {
+            this.indicePagina--;
         }
 
         updateModel();
     }   
 
-    public int getRecords() {
-        return records;
+    public int getRegistros() {
+        return registros;
     }
 
-    public int getRecordsTotal() {
-        return recordsTotal;
+    public int getTotalRegistros() {
+        return totalRegistros;
     }
 
-    public int getPageIndex() {
-        return pageIndex;
+    public int getIndicePagina() {
+        return indicePagina;
     }
 
-    public int getPages() {
-        return pages;
+    public int getPaginas() {
+        return paginas;
     }
 
-    public int getFirst() {
-        return (pageIndex * records) - records;
+    public int getPrimeiro() {
+        return (indicePagina * registros) - registros;
     }
 
-    public List<Veiculo> getModel() {
-        if(model==null)
+    public List<Veiculo> getModelo() {
+        if(modelo==null)
             updateModel();
-        return model;
+        return modelo;
     }
 
-    public void setModel(List<Veiculo> model) {
-        this.model = model;
+    public void setModelo(List<Veiculo> modelo) {
+        this.modelo = modelo;
     }
 
-    public void setPageIndex(int pageIndex) {
-        this.pageIndex = pageIndex;
+    public void setIndicePagina(int indicePagina) {
+        this.indicePagina = indicePagina;
     }
 }

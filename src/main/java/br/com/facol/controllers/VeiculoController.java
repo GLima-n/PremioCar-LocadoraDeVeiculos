@@ -37,7 +37,6 @@ public class VeiculoController implements Serializable {
 
 	public Long pegarId() {
 		String nid = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idVeiculo");
-		System.out.println(nid);
 		return this.id = Long.parseLong(nid);
 	}
 	

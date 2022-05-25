@@ -9,7 +9,7 @@
 		<section class="conteudo-busca">
 			<p:panel header="Veículos Disponíveis">
 				<h:form id="form">
-					<ui:repeat value="#{repeatPaginator.model}" var="veiculo">
+					<ui:repeat value="#{repeatPaginator.modelo}" var="veiculo">
 						<h:link class="link" outcome="TelaApresentacaoVeiculo">
 							<p:card id="card"
 								style="width: 25rem; margin-right: 30px; display: inline-block; margin-top: 1em; margin-bottom: 1em; text-align: center;">
@@ -21,7 +21,7 @@
 									name="#{veiculo.pathImagem}"></p:graphicImage>
 
 								<h4>Valor da diária R$: #{repeatPaginator.converterPonto(veiculo.valorDiaria)}</h4>
-								<h4 style="display: inline;">Disponibilidade:</h4>
+								<h4 style="display: inline;">Situação:</h4>
 								<h4 class="situacao" style="color: green; display: inline;">#{veiculo.situacao}</h4>
 							</p:card>
 							<script>
@@ -44,10 +44,10 @@
 						<p:commandButton value="&lt; Anterior" style="margin-right: 2px;"
 							update="form" action="#{repeatPaginator.prev}" />
 						<h:outputText
-							value="#{repeatPaginator.pageIndex} / #{repeatPaginator.pages}" />
+							value="#{repeatPaginator.indicePagina} / #{repeatPaginator.paginas}" />
 						<p:commandButton value="Proxímo &gt;" style="margin-left: 2px;"
-							update="form" action="#{repeatPaginator.next}" />
-						<h:inputHidden value="#{repeatPaginator.pageIndex}" />
+							update="form" action="#{repeatPaginator.proximo}" />
+						<h:inputHidden value="#{repeatPaginator.indicePagina}" />
 					</div>
 				</h:form>
 			</p:panel>
