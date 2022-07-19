@@ -1,7 +1,5 @@
 # PremioCar-LocadoraDeVeiculos
 
-Nome do grupo: Carlos Henrique, Emerson Nunes e Gabriel Nascimento.
-
 OBSERVAÇÕES PARA EXECUÇÃO DO PROJETO:
 
 1- DEVE-SE MUDAR AS CONFIGURAÇÕES DE SENHA E USUÁRIO DO MYSQL NO ARQUIVO PERSISTENCE.XML. (PremioCar-LocadoraDeVeiculos/src/main/resources/META-INF/persistence.xml).
